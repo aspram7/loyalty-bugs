@@ -1,0 +1,24 @@
+/*----------system-----------*/
+
+.system-page-title {
+    color: #dedede;
+}
+
+.card-body {
+    cursor: auto;
+}
+
+@media (max-width: 992px) {
+    .system-page-title {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 645px) {
+    .system-page-title {
+        font-size: 1.2rem;
+    }
+    .system-page-title > span {
+        word-wrap: break-word;
+    }
+}
