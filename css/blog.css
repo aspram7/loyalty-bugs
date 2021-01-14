@@ -2,7 +2,7 @@ body {
   background: #f8f9fa !important;
 }
 
-/*----- header-text*/
+/*header-text*/
 .text-header {
   margin-top: 140px;
   position: relative;
@@ -143,7 +143,7 @@ textarea.form-control {
   position: relative;
   
 }
-  .blog_section_head:after{
+.blog_section_head:after{
     content: '';
     background: rgba(0,0,0,0.8);
     height: 100%;
@@ -152,9 +152,17 @@ textarea.form-control {
     top: 0;
     left: 0;
   }
+
+.card-general {
+  display: flex;
+  flex-wrap: wrap;
+  }
+
 .card{
   background: transparent;
   border: 0;
+  width: 25%;
+  margin: 0 15px;
 }
 .top-item-title, .card-body {
   background: none;

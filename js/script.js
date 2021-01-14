@@ -82,7 +82,7 @@ function number_to(className, from, to, duration) {
 }
 
 window.addEventListener("scroll", function f() {
-    if ($(".statistic").offset().top - $(window).scrollTop() - $(window).height() + 200 <= 0) {
+    if ($(".statistic").offset() && $(".statistic").offset().top - $(window).scrollTop() - $(window).height() + 200 <= 0) {
         number_to("counter1", 1, 300, 1500);
         number_to("counter2", 1, 27, 1500);
         number_to("counter3", 1, 54, 1500);
@@ -93,71 +93,34 @@ window.addEventListener("scroll", function f() {
 
 // coupons
 
-var countDownDate = new Date("Jan 5, 2021 15:37:25").getTime();
+var countDownDate = new Date("jan 5, 2021 15:37:25").getTime();
+var countDownDate1 = new Date("feb 5, 2021 15:37:25").getTime();
+var countDownDate2 = new Date("jun 5, 2021 15:37:25").getTime();
 
-var x = setInterval(function () {
-    var now = new Date().getTime();
+var elements = document.getElementsByClassName("countdown-timer")
 
-    var distance = countDownDate - now;
 
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+function countDownTimer(date, element) {
+    var x = setInterval(function () {
+        var now = new Date().getTime();
+    
+        var distance = date - now;
+    
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+        element.getElementsByClassName("get-time")[0].innerHTML = days;
+        element.getElementsByClassName("get-time")[1].innerHTML = hours;
+        element.getElementsByClassName("get-time")[2].innerHTML = minutes;
+        element.getElementsByClassName("get-time")[3].innerHTML = seconds;
+    
+        if (distance < 0) {
+            clearInterval(x);
+            element.innerHTML = "<p class='expired'>EXPIRED</p>";
+        }
+    }, 1000);
+}
 
-    document.getElementsByClassName("get-time")[0].innerHTML = days;
-    document.getElementsByClassName("get-time")[1].innerHTML = hours;
-    document.getElementsByClassName("get-time")[2].innerHTML = minutes;
-    document.getElementsByClassName("get-time")[3].innerHTML = seconds;
 
-    if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("get-time").innerHTML = "EXPIRED";
-    }
-}, 0);
-
-var countDownDate1 = new Date("Jan 15, 2021 15:37:25").getTime();
-
-var x = setInterval(function () {
-    var now = new Date().getTime();
-
-    var distance = countDownDate1 - now;
-
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    document.getElementsByClassName("get-time1")[0].innerHTML = days;
-    document.getElementsByClassName("get-time1")[1].innerHTML = hours;
-    document.getElementsByClassName("get-time1")[2].innerHTML = minutes;
-    document.getElementsByClassName("get-time1")[3].innerHTML = seconds;
-
-    if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("get-time1").innerHTML = "EXPIRED";
-    }
-}, 0);
-
-var countDownDate2 = new Date("Feb 8, 2021 15:37:25").getTime();
-
-var x = setInterval(function () {
-    var now = new Date().getTime();
-
-    var distance = countDownDate2 - now;
-
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    document.getElementsByClassName("get-time2")[0].innerHTML = days;
-    document.getElementsByClassName("get-time2")[1].innerHTML = hours;
-    document.getElementsByClassName("get-time2")[2].innerHTML = minutes;
-    document.getElementsByClassName("get-time2")[3].innerHTML = seconds;
-
-    if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("get-time2").innerHTML = "EXPIRED";
-    }
-}, 0);

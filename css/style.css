@@ -911,6 +911,11 @@ div {
     font-size: 15px;
 }
 
+.expired {
+    color: #7d0c0c;
+    font-size: 22px;
+}
+
 /*------------------Footer-------------------*/
 footer {
     padding: 10px 0 10px;
@@ -1168,7 +1173,7 @@ section {
 
     /*-------------------------------*/
     .partners__item {
-        width: 45%;
+        width: 100%;
     }
     .block-20 {
         height: 300px;
